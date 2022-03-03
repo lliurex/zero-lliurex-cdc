@@ -1,0 +1,26 @@
+#!/bin/bash
+
+lliurex_version=$(lliurex-version)
+IFS=","
+read -a flavours <<< "$lliurex_version"
+
+for item in "${flavours[@]}";
+do
+	if [[ $item == *"server"* ]];then
+		version="standalone"
+		break;
+	elif [[ $item == *"client"* ]];then
+		version="client"
+		break;
+	elif [[ $item == *"desktop"* ]];then
+		version="standalone"
+	fi
+done
+
+if [[ $version == "client" ]];then
+	epi-gtk /usr/share/zero-lliurex-cdc/cdc-client.epi
+else
+	epi-gtk /usr/share/zero-lliurex-cdc/cdc-standalone.epi
+
+fi
+exit 0

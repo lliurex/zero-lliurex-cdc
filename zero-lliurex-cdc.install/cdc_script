@@ -1,0 +1,75 @@
+#!/bin/bash
+
+
+function getFlavour
+{
+
+	lliurex_version=$(lliurex-version)
+	IFS=","
+	read -a flavours <<< "$lliurex_version"
+
+	for item in "${flavours[@]}";
+	do
+		if [[ $item == *"server"* ]];then
+			echo "standalone"
+		elif [[ $item == *"client"* ]];then
+			echo "client"
+		elif [[ $item == *"desktop"* ]];then
+			version="standalone"
+		fi
+	done
+
+	echo $version
+
+}
+
+ACTION="$1"
+PKG_CLIENT_EXCLUSIVE="cdc-mapper-config-client"
+PKG_STANDALONE_EXCLUSIVE="cdc-mapper-config-localhost"
+
+shift
+
+PACKAGE_LIST=$@
+
+
+
+case $ACTION in
+
+	preInstall)
+
+		version=$(getFlavour)
+
+		for ix in $PACKAGE_LIST
+		do
+			if [[ "$ix" == "$PKG_CLIENT_EXCLUSIVE" ]];then
+				if [[ "$version" != "client" ]];then
+					echo "ERROR: You are trying to install the CDC setup for client on a server or deskopt computer"
+					exit 1
+				fi
+			elif [[ "$ix" == "$PKG_STANDALONE_EXCLUSIVE" ]];then
+				if [[ "$version" != "standalone" ]];then
+					echo "ERROR: You are trying to install the CDC setup for server or desktop on a client computer"
+					exit 1
+				fi
+			fi
+		done
+
+	;;
+
+	remove)
+		match=0
+		for ix in $PACKAGE_LIST
+		do
+			apt-get remove -y $ix
+			TEST=$( dpkg-query -s $ix 2> /dev/null| grep Status | cut -d " " -f 4 )
+			if [ "$TEST" == 'installed' ];then
+				match+=1
+			fi
+		done
+
+		if [ "$match" -gt 0 ];then
+			exit 1
+		fi
+				
+	;;	
+esac
