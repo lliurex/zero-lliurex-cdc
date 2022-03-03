@@ -18,9 +18,9 @@ do
 done
 
 if [[ $version == "client" ]];then
-	epi-gtk /usr/share/zero-lliurex-cdc/cdc-client.epi
+	epi-gtk /usr/share/zero-lliurex-cdc/cdc_onClient.epi
 else
-	epi-gtk /usr/share/zero-lliurex-cdc/cdc-standalone.epi
+	epi-gtk /usr/share/zero-lliurex-cdc/cdc_onStandalone.epi
 
 fi
 exit 0
