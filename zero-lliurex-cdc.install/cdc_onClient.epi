@@ -1,6 +1,6 @@
 {
 	"type":"apt",
-	"pkg_list": [{"name":"cdc","key_store":"cdc","custom_name":"CDC: configuration to CDC","custom_icon":"cdc.png"},{"name":"cdc-mapper","key_store":"cdc","custom_name":"cdc-mapper: map CDC users to LliureX groups","custom_icon":"cdc.png"},{"name":"cdc-mapper-config-client","key_store":"cdc","custom_name":"cdc-mapper-config: configure cdc-mapper for clients","custom_icon":"cdc.png"},{"name":"libnss-lliurex","key_store":"cdc","custom_name":"libnss-lliurex: lliurex nss plugin","custom_icon":"cdc.png"}], 
+	"pkg_list": [{"name":"cdc","key_store":"cdc","custom_name":"CDC: configuration to CDC","custom_icon":"cdc.png"},{"name":"cdc-mapper","key_store":"cdc-mapper","custom_name":"cdc-mapper: map CDC users to LliureX groups","custom_icon":"cdc.png"},{"name":"cdc-mapper-config-client","key_store":"cdc-mapper-config-client","custom_name":"cdc-mapper-config: configure cdc-mapper for clients","custom_icon":"cdc.png"},{"name":"libnss-lliurex","key_store":"libnss-lliurex","custom_name":"libnss-lliurex: lliurex nss plugin","custom_icon":"cdc.png"}], 
 	"script": {"name":"/usr/share/zero-lliurex-cdc/cdc_script", "remove":true},
 	"custom_icon_path":"/usr/share/zero-lliurex-cdc/",
 	"zomando":"zero-lliurex-cdc"
