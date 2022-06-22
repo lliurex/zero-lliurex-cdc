@@ -11,7 +11,7 @@ function getFlavour
 	for item in "${flavours[@]}";
 	do
 		if [[ $item == *"server"* ]];then
-			version="standalone"
+			version="server"
 			break
 		elif [[ $item == *"client"* ]];then
 			version="client"
@@ -28,6 +28,7 @@ function getFlavour
 ACTION="$1"
 PKG_CLIENT_EXCLUSIVE="cdc-mapper-config-client"
 PKG_STANDALONE_EXCLUSIVE="cdc-mapper-config-localhost"
+PKG_SERVER_EXCLUSIVE="cdc-mapper-config-localhost-server"
 
 shift
 
@@ -50,7 +51,12 @@ case $ACTION in
 				fi
 			elif [[ "$ix" == "$PKG_STANDALONE_EXCLUSIVE" ]];then
 				if [[ "$version" != "standalone" ]];then
-					echo "ERROR: You are trying to install the CDC setup for server or desktop on a client computer"
+					echo "ERROR: You are trying to install the CDC setup for desktop on a server or client computer"
+					exit 1
+				fi
+			elif [[ "$ix" == "$PKG_SERVER_EXCLUSIVE" ]];then
+				if [[ "$version" != "server" ]];then
+					echo "ERROR: You are trying to install the CDC setup for server on a desktop or client computer"
 					exit 1
 				fi
 			fi

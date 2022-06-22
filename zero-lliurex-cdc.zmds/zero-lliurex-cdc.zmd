@@ -7,7 +7,7 @@ read -a flavours <<< "$lliurex_version"
 for item in "${flavours[@]}";
 do
 	if [[ $item == *"server"* ]];then
-		version="standalone"
+		version="server"
 		break;
 	elif [[ $item == *"client"* ]];then
 		version="client"
@@ -19,8 +19,9 @@ done
 
 if [[ $version == "client" ]];then
 	epi-gtk /usr/share/zero-lliurex-cdc/cdc_onClient.epi
-else
+elif [[ $version == "desktop" ]];then
 	epi-gtk /usr/share/zero-lliurex-cdc/cdc_onStandalone.epi
-
+elif [[ $version == "server" ]];then
+	epi-gtk /usr/share/zero-lliurex-cdc/cdc_onServer.epi
 fi
 exit 0
