@@ -1,1 +1,4 @@
-zero-lliurex-cdc.install/* /usr/share/zero-lliurex-cdc
+lliurex-cdc-control.install/ui/* /usr/share/lliurex-cdc-control/
+lliurex-cdc-control.install/launcher/* /usr/sbin
+lliurex-cdc-control.install/logrotate.d/* /etc/logrotate.d/
+lliurex-cdc-control.install/rsyslog.d/* /etc/rsyslog.d/
