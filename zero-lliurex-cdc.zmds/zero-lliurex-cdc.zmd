@@ -1,27 +1,3 @@
 #!/bin/bash
-
-lliurex_version=$(lliurex-version)
-IFS=","
-read -a flavours <<< "$lliurex_version"
-
-for item in "${flavours[@]}";
-do
-	if [[ $item == *"server"* ]];then
-		version="server"
-		break;
-	elif [[ $item == *"client"* ]];then
-		version="client"
-		break;
-	elif [[ $item == *"desktop"* ]];then
-		version="standalone"
-	fi
-done
-
-if [[ $version == "client" ]];then
-	epi-gtk /usr/share/zero-lliurex-cdc/cdc_onClient.epi
-elif [[ $version == "desktop" ]];then
-	epi-gtk /usr/share/zero-lliurex-cdc/cdc_onStandalone.epi
-elif [[ $version == "server" ]];then
-	epi-gtk /usr/share/zero-lliurex-cdc/cdc_onServer.epi
-fi
+exec lliurex-cdc-control
 exit 0

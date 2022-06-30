@@ -1,0 +1,20 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Name=Lliurex-CDC-Control
+Name[es]=Lliurex-CDC-Control
+Name[ca@valencia]=Lliurex-CDC-Control
+Name[ca_ES.UTF-8@valencia]=Lliurex-CDC-Control
+Comment=Program to manage the integration with CDC
+Comment[es]=Programa para gestionar la integración con el CDC
+Comment[ca@valencia]=Programa per a gestionar la integració amb el CDC
+Comment[ca_ES.UTF-8@valencia]=Programa per a gestionar la integració amb el CDC
+GenericName=lliurex-cdc-control
+Type=Application
+Exec=/usr/sbin/lliurex-cdc-control
+TryExec=lliurex-cdc-control
+Icon=lliurex-cdc-control
+Terminal=false
+StartupNotify=true
+NoDisplay=true
+Categories=LliureX-Administration;
