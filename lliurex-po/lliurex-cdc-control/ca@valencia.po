@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-06-30 09:14+0200\n"
-"PO-Revision-Date: 2022-06-30 09:16+0200\n"
+"PO-Revision-Date: 2022-06-30 11:42+0200\n"
 "Last-Translator: lliurex <lliurex@gva.es>\n"
 "Language-Team: Catalan\n"
 "Language: ca_ES@valencia\n"
@@ -21,60 +21,62 @@ msgstr ""
 #: ../lliurex-cdc-control.install/ui/rsrc/ApplicationOptions.qml:25
 #: ../lliurex-cdc-control.install/ui/rsrc/Settings.qml:102
 msgid "Settings"
-msgstr ""
+msgstr "Configuració"
 
 #: ../lliurex-cdc-control.install/ui/rsrc/ApplicationOptions.qml:37
 msgid "Help"
-msgstr ""
+msgstr "Ajuda"
 
 #: ../lliurex-cdc-control.install/ui/rsrc/Settings.qml:11
 msgid "Integration with CDC"
-msgstr ""
+msgstr "Integració amb el CDC"
 
 #: ../lliurex-cdc-control.install/ui/rsrc/Settings.qml:43
 msgid "Activate CDC integration on this computer"
-msgstr ""
+msgstr "Activar la integració amb el CDC en aquest equip"
 
 #: ../lliurex-cdc-control.install/ui/rsrc/Settings.qml:72
 #: ../lliurex-cdc-control.install/ui/rsrc/ChangesDialog.qml:53
 msgid "Apply"
-msgstr ""
+msgstr "Aplica"
 
 #: ../lliurex-cdc-control.install/ui/rsrc/Settings.qml:88
 #: ../lliurex-cdc-control.install/ui/rsrc/ChangesDialog.qml:82
 msgid "Cancel"
-msgstr ""
+msgstr "Cancel·la"
 
 #: ../lliurex-cdc-control.install/ui/rsrc/Settings.qml:104
 msgid ""
 "The are pending changes to apply.\n"
 "Do you want apply the changes or discard them?"
 msgstr ""
+"Hi ha canvis pendents d’aplicar.\n"
+"Voleu aplicar els canvis o descartar-los?"
 
 #: ../lliurex-cdc-control.install/ui/rsrc/Settings.qml:149
 msgid "Changes saved. You need to restart your computer"
-msgstr ""
+msgstr "Canvis guardats. És necessari reiniciar l'equip"
 
 #: ../lliurex-cdc-control.install/ui/rsrc/Settings.qml:152
 msgid "Unable to activate integration with CDC"
-msgstr ""
+msgstr "No es pot activar la integració amb el CDC"
 
 #: ../lliurex-cdc-control.install/ui/rsrc/Settings.qml:155
 msgid "Unable to disable integration with CDC"
-msgstr ""
+msgstr "No es pot desactivar la integració amb el CDC"
 
 #: ../lliurex-cdc-control.install/ui/rsrc/Settings.qml:179
 msgid "Apply changes. Wait a moment..."
-msgstr ""
+msgstr "S’estan aplicant els canvis. Espereu un moment..."
 
 #: ../lliurex-cdc-control.install/ui/rsrc/Settings.qml:191
 msgid "Restoring previous values. Wait a moment..."
-msgstr ""
+msgstr "S’estan restaurant els valors previs. Espereu un moment..."
 
 #: ../lliurex-cdc-control.install/ui/rsrc/Loading.qml:39
 msgid "Loading. Wait a moment..."
-msgstr ""
+msgstr "S’està carregant. Espereu un moment..."
 
 #: ../lliurex-cdc-control.install/ui/rsrc/ChangesDialog.qml:67
 msgid "Discard"
-msgstr ""
+msgstr "Descarta"
