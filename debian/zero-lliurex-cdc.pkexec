@@ -1,0 +1,25 @@
+[
+    {
+        "prefix": "net.lliurex.lliurex-cdc-control",
+        "cmd": "/usr/sbin/lliurex-cdc-control",
+        "nameaction": "gui",
+        "icon": "lliurex-cdc-control",
+        "default_auth": {
+            "any": "no",
+            "inactive": "no",
+            "active": "no"
+        },
+        "auths": [
+            {
+                "type": "group",
+                "members": [
+                    "sudo",
+                    "admins"
+                ],
+                "any": "yes",
+                "inactive": "yes",
+                "active": "yes"
+            }
+        ]
+    }
+]
