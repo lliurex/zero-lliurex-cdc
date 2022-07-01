@@ -6,6 +6,7 @@ import threading
 import signal
 import copy
 import time
+import pwd
 import CDCManager
 
 signal.signal(signal.SIGINT, signal.SIG_DFL)
@@ -15,14 +16,13 @@ class GatherInfo(QThread):
 	def __init__(self,*args):
 
 		QThread.__init__(self)
-		self.ticket=args[0]
 	#def __init__
 		
 
 	def run(self,*args):
 		
 		time.sleep(1)
-		LliurexCDCControl.cdcMan.loadConfig(self.ticket)
+		LliurexCDCControl.cdcMan.loadConfig()
 
 	#def run
 
@@ -44,7 +44,7 @@ class SetChanges(QThread):
 		if self.newValue:
 			self.ret=LliurexCDCControl.cdcMan.enableIntegrationCDC()
 		else:
-			self.ret=LliurexAccessControl.cdcMan.disableIntegrationCDC()
+			self.ret=LliurexCDCControl.cdcMan.disableIntegrationCDC()
 
 	#def run
 
@@ -54,14 +54,14 @@ class LliurexCDCControl(QObject):
 
 	cdcMan=CDCManager.CDCManager()
 
-	def __init__(self,ticket=None):
+	def __init__(self):
 
 		QObject.__init__(self)
-		self.initBridge(ticket)
+		self.initBridge()
 
 	#def __init__
 
-	def initBridge(self,ticket):
+	def initBridge(self):
 
 		self._isIntegrationCDCEnabled=False
 		self._settingsChanged=False
@@ -72,7 +72,7 @@ class LliurexCDCControl(QObject):
 		self._currentStack=0
 		self._currentOptionsStack=0
 		self.correctCode=True
-		self.gatherInfo=GatherInfo(ticket)
+		self.gatherInfo=GatherInfo()
 		self.gatherInfo.start()
 		self.gatherInfo.finished.connect(self._loadConfig)
 
@@ -232,6 +232,7 @@ class LliurexCDCControl(QObject):
 			self.showSettingsMessage=[True,self.setChangesT.ret[1],"Error"]
 			self.closeGui=False
 
+		self.isIntegrationCDCEnabled=LliurexCDCControl.cdcMan.isIntegrationCDCEnabled
 		self.settingsChanged=False
 		self.closePopUp=True
 
@@ -281,20 +282,31 @@ class LliurexCDCControl(QObject):
 	@Slot()
 	def openHelp(self):
 		
-		if 'valencia' in LliurexCDCControl.cdcMan.sessionLang:
-			self.help_cmd='xdg-open https://wiki.edu.gva.es/lliurex/tiki-index.php?page=Lliurex-CDC-Control.'
-		else:
-			self.help_cmd='xdg-open https://wiki.edu.gva.es/lliurex/tiki-index.php?page=Lliurex-CDC-Control'
+		runPkexec=False
 		
-		self.open_help_t=threading.Thread(target=self._openHelp)
-		self.open_help_t.daemon=True
-		self.open_help_t.start()
+		if "PKEXEC_UID" in os.environ:
+			runPkexec=True
+
+		if 'valencia' in LliurexCDCControl.cdcMan.sessionLang:
+			self.helpCmd='xdg-open https://wiki.edu.gva.es/lliurex/tiki-index.php?page=Lliurex-CDC-Control.'
+		else:
+			self.helpCmd='xdg-open https://wiki.edu.gva.es/lliurex/tiki-index.php?page=Lliurex-CDC-Control'
+		
+		if not runPkexec:
+			self.helpCmd="su -c '%s' $USER"%self.helpCmd
+		else:
+			user=pwd.getpwuid(int(os.environ["PKEXEC_UID"])).pw_name
+			self.helpCmd="su -c '%s' %s"%(self.helpCmd,user)
+
+		self.openHelp_t=threading.Thread(target=self._openHelp)
+		self.openHelp_t.daemon=True
+		self.openHelp_t.start()
 
 	#def openHelp
 
 	def _openHelp(self):
 
-		os.system(self.help_cmd)
+		os.system(self.helpCmd)
 
 	#def _openHelp
 
@@ -306,6 +318,7 @@ class LliurexCDCControl(QObject):
 			self.showChangesDialog=True
 		else:
 			self.closeGui=True
+			LliurexCDCControl.cdcMan.removeLockToken()
 			LliurexCDCControl.cdcMan.writeLog("Close Session")
 
 	#def closeApplication

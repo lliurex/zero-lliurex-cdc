@@ -4,6 +4,7 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Dialogs 1.3
+import org.kde.plasma.components 3.0 as PC3
 
 Rectangle{
     color:"transparent"
@@ -38,7 +39,7 @@ Rectangle{
             rowSpacing:5
             Layout.topMargin: messageLabel.visible?0:50
 
-            CheckBox {
+            PC3.CheckBox {
                 id:cdcControlCb
                 text:i18nd("lliurex-cdc-control","Activate CDC integration on this computer")
                 checked:cdcControlBridge.isIntegrationCDCEnabled
@@ -63,12 +64,12 @@ Rectangle{
         anchors.rightMargin:10
         spacing:10
 
-        Button {
+        PC3.Button {
             id:applyBtn
             visible:true
             focus:true
             display:AbstractButton.TextBesideIcon
-            icon.name:"dialog-ok.svg"
+            icon.name:"dialog-ok"
             text:i18nd("lliurex-cdc-control","Apply")
             Layout.preferredHeight:40
             enabled:cdcControlBridge.settingsChanged
@@ -79,12 +80,12 @@ Rectangle{
                 cdcControlBridge.applyChanges()
             }
         }
-        Button {
+        PC3.Button {
             id:cancelBtn
             visible:true
             focus:true
             display:AbstractButton.TextBesideIcon
-            icon.name:"dialog-cancel.svg"
+            icon.name:"dialog-cancel"
             text:i18nd("lliurex-cdc-control","Cancel")
             Layout.preferredHeight: 40
             enabled:cdcControlBridge.settingsChanged
@@ -110,6 +111,9 @@ Rectangle{
             }
             function onDiscardDialogClicked(){
                 discardChanges()
+            }
+            function onCancelDialogClicked(){
+                cdcControlBridge.manageSettingsDialog("Cancel")
             }
 
         }

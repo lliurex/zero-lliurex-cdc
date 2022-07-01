@@ -2,6 +2,7 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Dialogs 1.3
+import org.kde.plasma.components 3.0 as PC3
 
 
 Dialog {
@@ -11,10 +12,22 @@ Dialog {
     property alias dialogMsg:dialogText.text
     signal dialogApplyClicked
     signal discardDialogClicked
+    signal cancelDialogClicked
+    property bool xButton
 
     visible:dialogVisible
     title:dialogTitle
     modality:Qt.WindowModal
+
+    onVisibleChanged:{
+        if (!this.visible && xButton){
+            if (cdcControlBridge.showChangesDialog){
+                cancelDialogClicked()
+            }
+        }else{
+            xButton=true
+        }
+    }
 
     contentItem: Rectangle {
         color: "#ebeced"
@@ -40,70 +53,68 @@ Dialog {
         
         }
       
-        DialogButtonBox {
-            buttonLayout:DialogButtonBox.KdeLayout
+        PC3.Button {
+            id:dialogApplyBtn
+            display:AbstractButton.TextBesideIcon
+            icon.name:"dialog-ok"
+            text: i18nd("lliurex-access-control","Apply")
+            focus:true
+            font.family: "Quattrocento Sans Bold"
+            font.pointSize: 10
             anchors.bottom:parent.bottom
-            anchors.right:parent.right
-            anchors.topMargin:15
-
-            Button {
-                id:dialogApplyBtn
-                display:AbstractButton.TextBesideIcon
-                icon.name:"dialog-ok.svg"
-                text: i18nd("lliurex-access-control","Apply")
-                focus:true
-                font.family: "Quattrocento Sans Bold"
-                font.pointSize: 10
-                DialogButtonBox.buttonRole: DialogButtonBox.ApplyRole
-                Keys.onReturnPressed: dialogApplyBtn.clicked()
-                Keys.onEnterPressed: dialogApplyBtn.clicked()
-
-            }
-
-            Button {
-                id:dialogDiscardBtn
-                display:AbstractButton.TextBesideIcon
-                icon.name:"delete.svg"
-                text: i18nd("lliurex-access-control","Discard")
-                focus:true
-                font.family: "Quattrocento Sans Bold"
-                font.pointSize: 10
-                DialogButtonBox.buttonRole: DialogButtonBox.DestructiveRole
-                Keys.onReturnPressed: dialogDiscardBtn.clicked()
-                Keys.onEnterPressed: dialogDiscardBtn.clicked()
-
-
-            }
-
-            Button {
-                id:dialogCancelBtn
-                display:AbstractButton.TextBesideIcon
-                icon.name:"dialog-cancel.svg"
-                text: i18nd("lliurex-access-control","Cancel")
-                focus:true
-                font.family: "Quattrocento Sans Bold"
-                font.pointSize: 10
-                DialogButtonBox.buttonRole:DialogButtonBox.RejectRole
-                Keys.onReturnPressed: dialogCancelBtn.clicked()
-                Keys.onEnterPressed: dialogCancelBtn.clicked()
-        
-            }
-
-            onApplied:{
+            anchors.right:dialogDiscardBtn.left
+            anchors.rightMargin:10
+            anchors.bottomMargin:5
+            DialogButtonBox.buttonRole: DialogButtonBox.ApplyRole
+            Keys.onReturnPressed: dialogApplyBtn.clicked()
+            Keys.onEnterPressed: dialogApplyBtn.clicked()
+            onClicked:{
+                xButton=false
                 dialogApplyClicked()
                 cdcControlBridge.manageSettingsDialog("Accept")
-
             }
+        }
 
-            onDiscarded:{
+        PC3.Button {
+            id:dialogDiscardBtn
+            display:AbstractButton.TextBesideIcon
+            icon.name:"delete"
+            text: i18nd("lliurex-access-control","Discard")
+            focus:true
+            font.family: "Quattrocento Sans Bold"
+            font.pointSize: 10
+            anchors.bottom:parent.bottom
+            anchors.right:dialogCancelBtn.left
+            anchors.rightMargin:10
+            anchors.bottomMargin:5
+            DialogButtonBox.buttonRole: DialogButtonBox.DestructiveRole
+            Keys.onReturnPressed: dialogDiscardBtn.clicked()
+            Keys.onEnterPressed: dialogDiscardBtn.clicked()
+            onClicked:{
+                xButton=false
                 discardDialogClicked(),
                 cdcControlBridge.manageSettingsDialog("Discard")
-
             }
+        }
 
-            onRejected:{
-                cdcControlBridge.manageSettingsDialog("Cancel")
-
+        PC3.Button {
+            id:dialogCancelBtn
+            display:AbstractButton.TextBesideIcon
+            icon.name:"dialog-cancel"
+            text: i18nd("lliurex-access-control","Cancel")
+            focus:true
+            font.family: "Quattrocento Sans Bold"
+            font.pointSize: 10
+            anchors.bottom:parent.bottom
+            anchors.right:parent.right
+            anchors.rightMargin:5
+            anchors.bottomMargin:5
+            DialogButtonBox.buttonRole:DialogButtonBox.RejectRole
+            Keys.onReturnPressed: dialogCancelBtn.clicked()
+            Keys.onEnterPressed: dialogCancelBtn.clicked()
+            onClicked:{
+                xButton:false
+                cancelDialogClicked()
             }
         }
     }
