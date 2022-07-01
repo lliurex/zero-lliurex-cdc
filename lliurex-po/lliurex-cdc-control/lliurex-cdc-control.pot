@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-30 09:14+0200\n"
+"POT-Creation-Date: 2022-07-01 09:10+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,63 +17,71 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../lliurex-cdc-control.install/ui/rsrc/ApplicationOptions.qml:25
-#: ../lliurex-cdc-control.install/ui/rsrc/Settings.qml:102
+#: ../lliurex-cdc-control.install/ui/lliurex-cdc-control:18
+msgid "Lliurex-CDC-Control is now running. Wait a moment and try again."
+msgstr ""
+
+#: ../lliurex-cdc-control.install/ui/lliurex-cdc-control:32
+msgid "You need administration privileges to run this application."
+msgstr ""
+
+#: ../lliurex-cdc-control.install/ui/rsrc/ApplicationOptions.qml:24
+#: ../lliurex-cdc-control.install/ui/rsrc/Settings.qml:103
 msgid "Settings"
 msgstr ""
 
-#: ../lliurex-cdc-control.install/ui/rsrc/ApplicationOptions.qml:37
+#: ../lliurex-cdc-control.install/ui/rsrc/ApplicationOptions.qml:36
 msgid "Help"
 msgstr ""
 
-#: ../lliurex-cdc-control.install/ui/rsrc/Settings.qml:11
+#: ../lliurex-cdc-control.install/ui/rsrc/Settings.qml:12
 msgid "Integration with CDC"
 msgstr ""
 
-#: ../lliurex-cdc-control.install/ui/rsrc/Settings.qml:43
+#: ../lliurex-cdc-control.install/ui/rsrc/Settings.qml:44
 msgid "Activate CDC integration on this computer"
 msgstr ""
 
-#: ../lliurex-cdc-control.install/ui/rsrc/Settings.qml:72
-#: ../lliurex-cdc-control.install/ui/rsrc/ChangesDialog.qml:53
+#: ../lliurex-cdc-control.install/ui/rsrc/Settings.qml:73
+#: ../lliurex-cdc-control.install/ui/rsrc/ChangesDialog.qml:60
 msgid "Apply"
 msgstr ""
 
-#: ../lliurex-cdc-control.install/ui/rsrc/Settings.qml:88
-#: ../lliurex-cdc-control.install/ui/rsrc/ChangesDialog.qml:82
+#: ../lliurex-cdc-control.install/ui/rsrc/Settings.qml:89
+#: ../lliurex-cdc-control.install/ui/rsrc/ChangesDialog.qml:104
 msgid "Cancel"
 msgstr ""
 
-#: ../lliurex-cdc-control.install/ui/rsrc/Settings.qml:104
+#: ../lliurex-cdc-control.install/ui/rsrc/Settings.qml:105
 msgid ""
 "The are pending changes to apply.\n"
 "Do you want apply the changes or discard them?"
 msgstr ""
 
-#: ../lliurex-cdc-control.install/ui/rsrc/Settings.qml:149
+#: ../lliurex-cdc-control.install/ui/rsrc/Settings.qml:153
 msgid "Changes saved. You need to restart your computer"
 msgstr ""
 
-#: ../lliurex-cdc-control.install/ui/rsrc/Settings.qml:152
+#: ../lliurex-cdc-control.install/ui/rsrc/Settings.qml:156
 msgid "Unable to activate integration with CDC"
 msgstr ""
 
-#: ../lliurex-cdc-control.install/ui/rsrc/Settings.qml:155
+#: ../lliurex-cdc-control.install/ui/rsrc/Settings.qml:159
 msgid "Unable to disable integration with CDC"
 msgstr ""
 
-#: ../lliurex-cdc-control.install/ui/rsrc/Settings.qml:179
+#: ../lliurex-cdc-control.install/ui/rsrc/Settings.qml:183
 msgid "Apply changes. Wait a moment..."
 msgstr ""
 
-#: ../lliurex-cdc-control.install/ui/rsrc/Settings.qml:191
+#: ../lliurex-cdc-control.install/ui/rsrc/Settings.qml:195
 msgid "Restoring previous values. Wait a moment..."
 msgstr ""
 
-#: ../lliurex-cdc-control.install/ui/rsrc/Loading.qml:39
+#: ../lliurex-cdc-control.install/ui/rsrc/Loading.qml:40
 msgid "Loading. Wait a moment..."
 msgstr ""
 
-#: ../lliurex-cdc-control.install/ui/rsrc/ChangesDialog.qml:67
+#: ../lliurex-cdc-control.install/ui/rsrc/ChangesDialog.qml:82
 msgid "Discard"
 msgstr ""

@@ -1,0 +1,57 @@
+#!/usr/bin/python3
+
+from PySide2.QtWidgets import QApplication
+from PySide2.QtCore import QUrl
+from PySide2.QtGui import QIcon
+from PySide2.QtQml import QQmlApplicationEngine
+
+import sys
+import os
+import shutil
+import gettext
+gettext.textdomain("lliurex-cdc-control")
+_ = gettext.gettext
+
+
+if os.path.exists('/var/run/cdcControl.lock'):
+	print ("  [Lliurex-CDC-Control]: Lliurex-CDC-Control is now running ")
+	msg=_("Lliurex-CDC-Control is now running. Wait a moment and try again.")
+	cmd="kdialog --title 'Lliurex-CDC-Control' --icon 'lliurex-cdc-control' --sorry '%s'"%(msg)
+	os.system(cmd)
+	sys.exit(1)
+
+else:
+	try:
+		print("  [Lliurex-CDC-Control]: Checking root")
+		f=open("/var/run/cdcControl.token","w")
+		f.close()
+		os.remove("/var/run/cdcControl.token")
+
+	except:
+		print("  [Lliurex-CDC-Control]: No administration privileges")
+		msg=_("You need administration privileges to run this application.")
+		cmd="kdialog --title 'Lliurex-CDC-Control' --icon 'lliurex-cdc-control.svg' --sorry '%s'"%(msg)
+		os.system(cmd)
+		sys.exit(1)
+
+import LliurexCDCControl		
+app = QApplication()
+engine = QQmlApplicationEngine()
+engine.clearComponentCache()
+context=engine.rootContext()
+cdcControlBridge=LliurexCDCControl.LliurexCDCControl()
+context.setContextProperty("cdcControlBridge", cdcControlBridge)
+
+url = QUrl("/usr/share/lliurex-cdc-control/rsrc/lliurex-cdc-control.qml")
+
+engine.load(url)
+if not engine.rootObjects():
+	sys.exit(-1)
+
+engine.quit.connect(QApplication.quit)
+app.setWindowIcon(QIcon("/usr/share/icons/hicolor/scalable/apps/lliurex-cdc-control.svg"));
+ret=app.exec_()
+del engine
+del app
+sys.exit(ret)
+

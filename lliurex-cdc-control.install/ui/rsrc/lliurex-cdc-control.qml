@@ -4,7 +4,6 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Window 2.15
-import QtQuick.Dialogs 1.3
 
 ApplicationWindow {
 
@@ -12,6 +11,7 @@ ApplicationWindow {
     id:mainWindow
     visible: true
     title: "LliureX CDC Control"
+    color:"#eff0f1"
     property int margin: 1
     width: mainLayout.implicitWidth + 2 * margin
     height: mainLayout.implicitHeight + 2 * margin

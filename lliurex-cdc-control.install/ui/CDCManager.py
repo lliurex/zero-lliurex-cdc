@@ -3,6 +3,7 @@
 import os
 import subprocess
 import sys
+import shutil
 import syslog
 
 class CDCManager:
@@ -15,20 +16,34 @@ class CDCManager:
 
 		self.debug=True
 		self.isIntegrationCDCEnabled=False
+		self.lockTokenPath="/var/run/cdcControl.lock"
+		self._createLockToken()
 		self.getSessionLang()
+		self.clearCache()
+		self._getCurrentUser()
 
 	#def __init__
 
-
-	#def setServer
-
-	def loadConfig(self,ticket):
+	def _createLockToken(self):
 		
-		ticket=ticket.replace('##U+0020##',' ')
-		self.currentUser=ticket.split(' ')[2]
+		if not os.path.exists(self.lockTokenPath):
+			f=open(self.lockTokenPath,'w')
+			upPid=os.getpid()
+			f.write(str(upPid))
+			f.close()
+
+	#def createLockToken
+
+	def loadConfig(self):
 		
 		self.writeLog("Init session in lliurex-access-control GUI")
 		self.writeLog("User login in GUI: %s"%self.currentUser)
+		self._getIntegrationCDCStatus()
+		self.writeLog("Initial configuration. Integration with CDC enabled: %s"%str(self.isIntegrationCDCEnabled))
+
+	#def loadConfig
+
+	def _getIntegrationCDCStatus(self):
 
 		cmd="cdccli -t"
 		p=subprocess.Popen(cmd,shell=True,stdout=subprocess.PIPE)
@@ -39,10 +54,8 @@ class CDCManager:
 			self.isIntegrationCDCEnabled=True
 		else:
 			self.isIntegrationCDCEnabled=False
-
-		self.writeLog("Initial configuration. Integration with CDC enabled: %s"%str(self.isIntegrationCDCEnabled))
 	
-	#def loadConfig
+	#def _getIntegrationCDCStatus
 
 	def enableIntegrationCDC(self):
 
@@ -59,13 +72,15 @@ class CDCManager:
 		if rc==0:
 			error=False
 			msg=CDCManager.APPLY_CHANGES_SUCCESSFUL
-			self.writeLog("- Result: Change apply successful")
+			self._getIntegrationCDCStatus()
+			self.writeLog("- Result: Change apply successfully")
 			
 		else:
 			error=True
 			msg=CDCManager.APPLY_CHANGES_ENABLE_ERROR
 			self.writeLog("- Result: Failed to apply change")
 
+		
 		result=[error,msg]
 
 		return result 	
@@ -87,8 +102,8 @@ class CDCManager:
 		if rc==0:
 			error=False
 			msg=CDCManager.APPLY_CHANGES_SUCCESSFUL
-			self.writeLog("- Result: Change apply successful")
-			
+			self._getIntegrationCDCStatus()
+			self.writeLog("- Result: Change apply successfully")
 		else:
 			error=True
 			msg=CDCManager.APPLY_CHANGES_DISABLE_ERROR
@@ -118,5 +133,88 @@ class CDCManager:
 
 	#def writeLog
 
+	def clearCache(self):
+
+		clear=False
+		versionFile="/root/.lliurex-cdc-control.conf"
+		cachePath1="/root/.cache/lliurex-cdc-control"
+		installedVersion=self.getPackageVersion()
+
+		if not os.path.exists(versionFile):
+			with open(versionFile,'w') as fd:
+				fd.write(installedVersion)
+
+			clear=True
+
+		else:
+			with open(versionFile,'r') as fd:
+				fileVersion=fd.readline()
+				fd.close()
+
+			if fileVersion!=installedVersion:
+				with open(versionFile,'w') as fd:
+					fd.write(installedVersion)
+					fd.close()
+				clear=True
+		
+		if clear:
+			if os.path.exists(cachePath1):
+				shutil.rmtree(cachePath1)
+
+	#def clearCache
+
+	def getPackageVersion(self):
+
+		command = "LANG=C LANGUAGE=en apt-cache policy zero-lliurex-cdc"
+		p = subprocess.Popen(command,shell=True,stdout=subprocess.PIPE)
+		installed = None
+		for line in iter(p.stdout.readline,b""):
+			if type(line) is bytes:
+				line=line.decode()
+
+			stripedline = line.strip()
+			if stripedline.startswith("Installed"):
+				installed = stripedline.replace("Installed: ","")
+
+		return installed
+
+	#def getPackageVersion
+
+	def _getCurrentUser(self):
+
+		sudoUser=""
+		loginUser=""
+		pkexecUser=""
+
+		try:
+			sudoUser=(os.environ["SUDO_USER"])
+		except:
+			pass
+		try:
+			loginUser=os.getlogin()
+		except:
+			pass
+
+		try:
+			cmd="id -un $PKEXEC_UID"
+			p=subprocess.Popen(cmd,shell=True,stdout=subprocess.PIPE)
+			pkexecUser=p.communicate()[0].decode().strip()
+		except Exception as e:
+			pass
+
+		if pkexecUser!="root" and pkexecUser!="":
+			self.currentUser=pkexecUser
+
+		elif sudoUser!="root" and sudoUser!="":
+			self.currentUser=sudoUser
+
+	#def _getCurrentUser
+
+	def removeLockToken(self):
+		
+		if os.path.exists(self.lockTokenPath):
+			os.remove(self.lockTokenPath)
+
+	#def removeLockToken
 
 #class CDCManager

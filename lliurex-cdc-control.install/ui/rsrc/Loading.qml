@@ -7,6 +7,7 @@ Rectangle{
     visible: true
     Layout.fillWidth:true
     Layout.fillHeight: true
+    color:"transparent"
 
     GridLayout{
         id: loadGrid
