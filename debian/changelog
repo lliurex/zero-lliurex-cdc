@@ -1,6 +1,12 @@
+zero-lliurex-cdc (2.1) focal-updates; urgency=medium
+
+  * Clean depends
+  
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Mon, 04 Jul 2022 08:07:48 +0200
+
 zero-lliurex-cdc (2.0) focal-updates; urgency=medium
 
-  * Adde gui to manage CDC integration
+  * Added gui to manage CDC integration
   * Changed zmd to launch configuration gui instead EPI
   
  -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Fri, 01 Jul 2022 10:09:56 +0200
