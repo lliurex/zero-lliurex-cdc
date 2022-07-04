@@ -1,3 +1,9 @@
+zero-lliurex-cdc (2.2.1) focal-updates; urgency=medium
+
+  * Add teachers to pkexec group
+
+ -- Raul Rodrigo Segura <raurodse@gmail.com>  Mon, 04 Jul 2022 16:55:42 +0200
+
 zero-lliurex-cdc (2.2) focal-updates; urgency=medium
 
   * Add teachers to enabled groups
