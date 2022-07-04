@@ -13,4 +13,4 @@ Comment[ca_ES]=Eina per a adminstrar la integració amb el CDC
 Category=System
 Icon=zero-lliurex-cdc
 ScriptPath=zero-lliurex-cdc.zmd
-Groups=sudo;admins
+Groups=sudo;admins;teachers
