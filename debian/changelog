@@ -1,3 +1,10 @@
+zero-lliurex-cdc (1.1) bionic-updates; urgency=medium
+
+  * Added gui to manage CDC integration
+  * Changed zmd to launch configuration gui instead epi file
+  
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Mon, 18 Jul 2022 14:36:40 +0200
+
 zero-lliurex-cdc (1.0~lliurex1) bionic; urgency=medium
 
   * Backport to bionic
