@@ -1,3 +1,9 @@
+zero-lliurex-cdc (2.2.2) focal; urgency=medium
+
+  * Fixed some imports to make compatible with LliureX 19
+  
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Mon, 18 Jul 2022 13:50:33 +0200
+
 zero-lliurex-cdc (2.2.1) focal-updates; urgency=medium
 
   * Add teachers to pkexec group
