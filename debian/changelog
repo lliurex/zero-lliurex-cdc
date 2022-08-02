@@ -1,3 +1,9 @@
+zero-lliurex-cdc (1.2) bionic-updates; urgency=medium
+
+  * Changed spinner to reduce ram consumption
+  
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Tue, 02 Aug 2022 09:14:12 +0200
+
 zero-lliurex-cdc (1.1) bionic-updates; urgency=medium
 
   * Added gui to manage CDC integration
