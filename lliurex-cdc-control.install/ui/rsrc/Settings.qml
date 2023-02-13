@@ -77,6 +77,7 @@ Rectangle{
             Keys.onEnterPressed: applyBtn.clicked()
             onClicked:{
                 applyChanges()
+                closeTimer.stop()
                 cdcControlBridge.applyChanges()
             }
         }
@@ -93,6 +94,7 @@ Rectangle{
             Keys.onEnterPressed: cancelBtn.clicked()
             onClicked:{
                 discardChanges()
+                closeTimer.stop()
                 cdcControlBridge.cancelChanges()
             }
         }
@@ -113,6 +115,7 @@ Rectangle{
                 discardChanges()
             }
             function onCancelDialogClicked(){
+                closeTimer.stop()
                 cdcControlBridge.manageSettingsDialog("Cancel")
             }
 

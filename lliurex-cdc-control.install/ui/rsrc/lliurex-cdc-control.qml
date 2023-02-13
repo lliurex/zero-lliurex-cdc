@@ -31,7 +31,7 @@ ApplicationWindow {
         delay(100, function() {
             if (cdcControlBridge.closeGui){
                 closing=true,
-                timer.stop(),           
+                closeTimer.stop(),           
                 mainWindow.close();
 
             }else{
@@ -117,14 +117,14 @@ ApplicationWindow {
     }
 
     Timer{
-        id:timer
+        id:closeTimer
     }
 
     function delay(delayTime,cb){
-        timer.interval=delayTime;
-        timer.repeat=true;
-        timer.triggered.connect(cb);
-        timer.start()
+        closeTimer.interval=delayTime;
+        closeTimer.repeat=true;
+        closeTimer.triggered.connect(cb);
+        closeTimer.start()
     }
 
 
