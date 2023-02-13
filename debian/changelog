@@ -1,3 +1,9 @@
+zero-lliurex-cdc (1.2.1) bionic; urgency=medium
+
+  * Improved close window performance
+  
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Mon, 13 Feb 2023 11:47:23 +0100
+
 zero-lliurex-cdc (1.2) bionic-updates; urgency=medium
 
   * Changed spinner to reduce ram consumption
