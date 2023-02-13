@@ -1,3 +1,9 @@
+zero-lliurex-cdc (2.2.4) focal; urgency=medium
+
+  * Improved close window performance
+  
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Mon, 13 Feb 2023 10:51:05 +0100
+
 zero-lliurex-cdc (2.2.3) focal; urgency=medium
 
   * Changed spinner to reduce ram consumption
