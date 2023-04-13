@@ -36,7 +36,7 @@ class CDCManager:
 
 	def loadConfig(self):
 		
-		self.writeLog("Init session in lliurex-access-control GUI")
+		self.writeLog("Init session in lliurex-cdc-control GUI")
 		self.writeLog("User login in GUI: %s"%self.currentUser)
 		self._getIntegrationCDCStatus()
 		self.writeLog("Initial configuration. Integration with CDC enabled: %s"%str(self.isIntegrationCDCEnabled))
@@ -165,18 +165,15 @@ class CDCManager:
 
 	def getPackageVersion(self):
 
-		command = "LANG=C LANGUAGE=en apt-cache policy zero-lliurex-cdc"
-		p = subprocess.Popen(command,shell=True,stdout=subprocess.PIPE)
-		installed = None
-		for line in iter(p.stdout.readline,b""):
-			if type(line) is bytes:
-				line=line.decode()
+		packageVersionFile="/var/lib/lliurex-cdc-control/version"
+		pkgVersion=""
 
-			stripedline = line.strip()
-			if stripedline.startswith("Installed"):
-				installed = stripedline.replace("Installed: ","")
+		if os.path.exists(packageVersionFile):
+			with open(packageVersionFile,'r') as fd:
+				pkgVersion=fd.readline()
+				fd.close()
 
-		return installed
+		return pkgVersion
 
 	#def getPackageVersion
 
