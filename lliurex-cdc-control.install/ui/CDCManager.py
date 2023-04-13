@@ -165,7 +165,7 @@ class CDCManager:
 
 	def getPackageVersion(self):
 
-		packageVersionFile="/var/lib/lliurex-cdc-control/version"
+		packageVersionFile="/var/lib/zero-lliurex-cdc/version"
 		pkgVersion=""
 
 		if os.path.exists(packageVersionFile):
