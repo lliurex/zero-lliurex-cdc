@@ -1,0 +1,55 @@
+zero-lliurex-cdc (2.2.5) focal; urgency=medium
+
+  * Minor fixes in GUI
+  * New method to get current version
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Wed, 14 Jun 2023 17:30:16 +0200
+
+zero-lliurex-cdc (2.2.4) focal; urgency=medium
+
+  * Improved close window performance
+  
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Mon, 13 Feb 2023 10:51:05 +0100
+
+zero-lliurex-cdc (2.2.3) focal; urgency=medium
+
+  * Changed spinner to reduce ram consumption
+  
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Mon, 01 Aug 2022 14:10:18 +0200
+
+zero-lliurex-cdc (2.2.2) focal; urgency=medium
+
+  * Fixed some imports to make compatible with LliureX 19
+  
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Mon, 18 Jul 2022 13:50:33 +0200
+
+zero-lliurex-cdc (2.2.1) focal-updates; urgency=medium
+
+  * Add teachers to pkexec group
+
+ -- Raul Rodrigo Segura <raurodse@gmail.com>  Mon, 04 Jul 2022 16:55:42 +0200
+
+zero-lliurex-cdc (2.2) focal-updates; urgency=medium
+
+  * Add teachers to enabled groups
+
+ -- Raul Rodrigo Segura <raurodse@gmail.com>  Mon, 04 Jul 2022 13:36:26 +0200
+
+zero-lliurex-cdc (2.1) focal-updates; urgency=medium
+
+  * Clean depends
+  
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Mon, 04 Jul 2022 08:07:48 +0200
+
+zero-lliurex-cdc (2.0) focal-updates; urgency=medium
+
+  * Added gui to manage CDC integration
+  * Changed zmd to launch configuration gui instead EPI
+  
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Fri, 01 Jul 2022 10:09:56 +0200
+
+zero-lliurex-cdc (1.0) focal; urgency=medium
+
+  * Initial release
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Fri, 04 Mar 2022 12:40:28 +0100
