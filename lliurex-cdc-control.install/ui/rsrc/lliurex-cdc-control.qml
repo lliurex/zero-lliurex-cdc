@@ -10,7 +10,7 @@ ApplicationWindow {
     property bool closing: false
     id:mainWindow
     visible: true
-    title: "LliureX CDC Control"
+    title: "LliureX ID Control"
     color:"#eff0f1"
     property int margin: 1
     width: mainLayout.implicitWidth + 2 * margin

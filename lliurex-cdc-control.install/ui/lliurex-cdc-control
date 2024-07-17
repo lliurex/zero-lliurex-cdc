@@ -15,8 +15,8 @@ _ = gettext.gettext
 
 if os.path.exists('/var/run/cdcControl.lock'):
 	print ("  [Lliurex-CDC-Control]: Lliurex-CDC-Control is now running ")
-	msg=_("Lliurex-CDC-Control is now running. Wait a moment and try again.")
-	cmd="kdialog --title 'Lliurex-CDC-Control' --icon 'lliurex-cdc-control' --sorry '%s'"%(msg)
+	msg=_("Lliurex-ID-Control is now running. Wait a moment and try again.")
+	cmd="kdialog --title 'Lliurex-ID-Control' --icon 'lliurex-cdc-control' --sorry '%s'"%(msg)
 	os.system(cmd)
 	sys.exit(1)
 
@@ -30,7 +30,7 @@ else:
 	except:
 		print("  [Lliurex-CDC-Control]: No administration privileges")
 		msg=_("You need administration privileges to run this application.")
-		cmd="kdialog --title 'Lliurex-CDC-Control' --icon 'lliurex-cdc-control.svg' --sorry '%s'"%(msg)
+		cmd="kdialog --title 'Lliurex-ID-Control' --icon 'lliurex-cdc-control.svg' --sorry '%s'"%(msg)
 		os.system(cmd)
 		sys.exit(1)
 
