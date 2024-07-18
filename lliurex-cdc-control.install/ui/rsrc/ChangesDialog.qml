@@ -57,7 +57,7 @@ Dialog {
             id:dialogApplyBtn
             display:AbstractButton.TextBesideIcon
             icon.name:"dialog-ok"
-            text: i18nd("lliurex-access-control","Apply")
+            text: i18nd("lliurex-cdc-control","Apply")
             focus:true
             font.family: "Quattrocento Sans Bold"
             font.pointSize: 10
@@ -79,7 +79,7 @@ Dialog {
             id:dialogDiscardBtn
             display:AbstractButton.TextBesideIcon
             icon.name:"delete"
-            text: i18nd("lliurex-access-control","Discard")
+            text: i18nd("lliurex-cdc-control","Discard")
             focus:true
             font.family: "Quattrocento Sans Bold"
             font.pointSize: 10
@@ -101,7 +101,7 @@ Dialog {
             id:dialogCancelBtn
             display:AbstractButton.TextBesideIcon
             icon.name:"dialog-cancel"
-            text: i18nd("lliurex-access-control","Cancel")
+            text: i18nd("lliurex-cdc-control","Cancel")
             focus:true
             font.family: "Quattrocento Sans Bold"
             font.pointSize: 10
