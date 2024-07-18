@@ -288,9 +288,9 @@ class LliurexCDCControl(QObject):
 			runPkexec=True
 
 		if 'valencia' in LliurexCDCControl.cdcMan.sessionLang:
-			self.helpCmd='xdg-open https://wiki.edu.gva.es/lliurex/tiki-index.php?page=Lliurex-CDC-Control.'
+			self.helpCmd='xdg-open https://wiki.edu.gva.es/lliurex/tiki-index.php?page=Lliurex-ID-Control.'
 		else:
-			self.helpCmd='xdg-open https://wiki.edu.gva.es/lliurex/tiki-index.php?page=Lliurex-CDC-Control'
+			self.helpCmd='xdg-open https://wiki.edu.gva.es/lliurex/tiki-index.php?page=Lliurex-ID-Control'
 		
 		if not runPkexec:
 			self.helpCmd="su -c '%s' $USER"%self.helpCmd

@@ -9,7 +9,7 @@ import org.kde.plasma.components 3.0 as PC3
 Rectangle{
     color:"transparent"
     Text{ 
-        text:i18nd("lliurex-cdc-control","Integration with CDC")
+        text:i18nd("lliurex-cdc-control","Integration with ID")
         font.family: "Quattrocento Sans Bold"
         font.pointSize: 16
     }
@@ -41,7 +41,7 @@ Rectangle{
 
             PC3.CheckBox {
                 id:cdcControlCb
-                text:i18nd("lliurex-cdc-control","Activate CDC integration on this computer")
+                text:i18nd("lliurex-cdc-control","Activate ID integration on this computer")
                 checked:cdcControlBridge.isIntegrationCDCEnabled
                 font.pointSize: 10
                 focusPolicy: Qt.NoFocus
@@ -102,7 +102,7 @@ Rectangle{
 
     ChangesDialog{
         id:cdcChangesDialog
-        dialogTitle:"Lliurex CDC Control"+" - "+i18nd("lliurex-CDC-control","Settings")
+        dialogTitle:"Lliurex ID Control"+" - "+i18nd("lliurex-CDC-control","Settings")
         dialogVisible:cdcControlBridge.showChangesDialog
         dialogMsg:i18nd("lliurex-cdc-control","The are pending changes to apply.\nDo you want apply the changes or discard them?")
         Connections{
@@ -156,10 +156,10 @@ Rectangle{
                 msg=i18nd("lliurex-cdc-control","Changes saved. You need to restart your computer");
                 break;
             case -1:
-                msg=i18nd("lliurex-cdc-control","Unable to activate integration with CDC");
+                msg=i18nd("lliurex-cdc-control","Unable to activate integration with ID");
                 break;
             case -2:
-                msg=i18nd("lliurex-cdc-control","Unable to disable integration with CDC");
+                msg=i18nd("lliurex-cdc-control","Unable to disable integration with ID");
                 break;
             default:
                 break;
