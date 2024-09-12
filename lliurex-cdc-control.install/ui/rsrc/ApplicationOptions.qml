@@ -22,7 +22,8 @@ GridLayout{
 
             MenuOptionBtn {
                 id:settingsItem
-                optionText:i18nd("lliurex-cdc-control","Settings")
+                //optionText:i18nd("lliurex-cdc-control","Settings")
+                optionText:"Settings"
                 optionIcon:"/usr/share/icons/breeze/actions/22/configure.svg"
                 optionEnabled:true
                 Connections{
@@ -34,7 +35,8 @@ GridLayout{
 
             MenuOptionBtn {
                 id:helpItem
-                optionText:i18nd("lliurex-cdc-control","Help")
+                //optionText:i18nd("lliurex-cdc-control","Help")
+                optionText:"Help"
                 optionIcon:"/usr/share/icons/breeze/actions/22/help-contents.svg"
                 Connections{
                     function onMenuOptionClicked(){
