@@ -1,6 +1,6 @@
-import QtQuick 2.6
-import QtQuick.Controls 2.6
-import QtQuick.Layouts 1.12
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
 
 
 Rectangle{
@@ -37,8 +37,7 @@ Rectangle{
 
             Text{
                 id:loadtext
-                //text:i18nd("lliurex-cdc-control", "Loading. Wait a moment...")
-                text:"Loading. Wait a moment..."
+                text:i18nd("lliurex-cdc-control", "Loading. Wait a moment...")
                 font.family: "Quattrocento Sans Bold"
                 font.pointSize: 10
                 Layout.alignment:Qt.AlignHCenter

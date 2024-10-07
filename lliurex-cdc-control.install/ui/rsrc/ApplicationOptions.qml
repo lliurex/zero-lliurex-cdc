@@ -1,6 +1,6 @@
-import QtQuick 2.6
-import QtQuick.Controls 2.6
-import QtQuick.Layouts 1.12
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
 
 
 GridLayout{
@@ -22,8 +22,7 @@ GridLayout{
 
             MenuOptionBtn {
                 id:settingsItem
-                //optionText:i18nd("lliurex-cdc-control","Settings")
-                optionText:"Settings"
+                optionText:i18nd("lliurex-cdc-control","Settings")
                 optionIcon:"/usr/share/icons/breeze/actions/22/configure.svg"
                 optionEnabled:true
                 Connections{
@@ -35,8 +34,7 @@ GridLayout{
 
             MenuOptionBtn {
                 id:helpItem
-                //optionText:i18nd("lliurex-cdc-control","Help")
-                optionText:"Help"
+                optionText:i18nd("lliurex-cdc-control","Help")
                 optionIcon:"/usr/share/icons/breeze/actions/22/help-contents.svg"
                 Connections{
                     function onMenuOptionClicked(){

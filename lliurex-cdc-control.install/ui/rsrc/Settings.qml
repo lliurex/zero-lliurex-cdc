@@ -1,16 +1,15 @@
-//import org.kde.plasma.core 2.1 as PlasmaCore
-import org.kde.kirigami 2.6 as Kirigami
-import QtQuick 2.6
-import QtQuick.Controls 2.6
-import QtQuick.Layouts 1.12
-import QtQuick.Dialogs 1.3
-//import org.kde.plasma.components 3.0 as PC3
+import org.kde.plasma.core as PlasmaCore
+import org.kde.kirigami as Kirigami
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
+import QtQuick.Dialogs
+import org.kde.plasma.components as PC
 
 Rectangle{
     color:"transparent"
     Text{ 
-        //text:i18nd("lliurex-cdc-control","Integration with ID")
-        text:"Integration with ID"
+        text:i18nd("lliurex-cdc-control","Integration with ID")
         font.family: "Quattrocento Sans Bold"
         font.pointSize: 16
     }
@@ -40,11 +39,9 @@ Rectangle{
             rowSpacing:5
             Layout.topMargin: messageLabel.visible?0:50
 
-            //PC3.CheckBox {
-            CheckBox{
+            PC.CheckBox {
                 id:cdcControlCb
-                //text:i18nd("lliurex-cdc-control","Activate ID integration on this computer")
-                text:"Activate ID integration on this computer"
+                text:i18nd("lliurex-cdc-control","Activate ID integration on this computer")
                 checked:cdcControlBridge.isIntegrationCDCEnabled
                 font.pointSize: 10
                 focusPolicy: Qt.NoFocus
@@ -67,16 +64,13 @@ Rectangle{
         anchors.rightMargin:10
         spacing:10
 
-        //PC3.Button {
-        Button{
+        PC.Button {
             id:applyBtn
             visible:true
             focus:true
             display:AbstractButton.TextBesideIcon
-            //icon.name:"dialog-ok"
-            icon.source:"/usr/share/icons/breeze/actions/22/dialog-ok"
-            //text:i18nd("lliurex-cdc-control","Apply")
-            text:"Apply"
+            icon.name:"dialog-ok"
+            text:i18nd("lliurex-cdc-control","Apply")
             Layout.preferredHeight:40
             enabled:cdcControlBridge.settingsChanged
             Keys.onReturnPressed: applyBtn.clicked()
@@ -87,16 +81,13 @@ Rectangle{
                 cdcControlBridge.applyChanges()
             }
         }
-        //PC3.Button {
-        Button{
+        PC.Button {
             id:cancelBtn
             visible:true
             focus:true
             display:AbstractButton.TextBesideIcon
-            //icon.name:"dialog-cancel"
-            icon.source:"/usr/share/icons/breeze/actions/22/dialog-cancel"
-            //text:i18nd("lliurex-cdc-control","Cancel")
-            text:"Cancel"
+            icon.name:"dialog-cancel"
+            text:i18nd("lliurex-cdc-control","Cancel")
             Layout.preferredHeight: 40
             enabled:cdcControlBridge.settingsChanged
             Keys.onReturnPressed: cancelBtn.clicked()
@@ -111,11 +102,9 @@ Rectangle{
 
     ChangesDialog{
         id:cdcChangesDialog
-        //dialogTitle:"Lliurex ID Control"+" - "+i18nd("lliurex-CDC-control","Settings")
-        dialogTitle:"Lliurex ID Control - Settings"
+        dialogTitle:"Lliurex ID Control"+" - "+i18nd("lliurex-cdc-control","Settings")
         dialogVisible:cdcControlBridge.showChangesDialog
-        //dialogMsg:i18nd("lliurex-cdc-control","The are pending changes to apply.\nDo you want apply the changes or discard them?")
-        dialogMsg:"The are pending changes to apply.\nDo you want apply the changes or discard them?"
+	dialogMsg:i18nd("lliurex-cdc-control","The are pending changes to apply.\nDo you want apply the changes or discard them?")
 
         Connections{
             target:cdcChangesDialog
@@ -165,16 +154,13 @@ Rectangle{
         var msg="";
         switch (code){
             case 0:
-                //msg=i18nd("lliurex-cdc-control","Changes saved. You need to restart your computer");
-                msg="Changes saved. You need to restart your computer";
+                msg=i18nd("lliurex-cdc-control","Changes saved. You need to restart your computer");
                 break;
             case -1:
-                //msg=i18nd("lliurex-cdc-control","Unable to activate integration with ID");
-                msg="Unable to activate integration with ID";
+                msg=i18nd("lliurex-cdc-control","Unable to activate integration with ID");
                 break;
             case -2:
-                //msg=i18nd("lliurex-cdc-control","Unable to disable integration with ID");
-                msg="Unable to disable integration with ID";
+                msg=i18nd("lliurex-cdc-control","Unable to disable integration with ID");
                 break;
             default:
                 break;
@@ -198,8 +184,7 @@ Rectangle{
 
     function applyChanges(){
         synchronizePopup.open()
-        //synchronizePopup.popupMessage=i18nd("lliurex-cdc-control", "Apply changes. Wait a moment...")
-        synchronizePopup.popupMessage="Apply changes. Wait a moment..."
+        synchronizePopup.popupMessage=i18nd("lliurex-cdc-control", "Apply changes. Wait a moment...")
         delayTimer.stop()
         delay(500, function() {
             if (cdcControlBridge.closePopUp){
@@ -211,8 +196,7 @@ Rectangle{
 
     function discardChanges(){
         synchronizePopup.open()
-        //synchronizePopup.popupMessage=i18nd("lliurex-cdc-control", "Restoring previous values. Wait a moment...")
-        synchronizePopup.popupMessage="Restoring previous values. Wait a moment..."
+        synchronizePopup.popupMessage=i18nd("lliurex-cdc-control", "Restoring previous values. Wait a moment...")
         delayTimer.stop()
         delay(1000, function() {
             if (cdcControlBridge.closePopUp){
