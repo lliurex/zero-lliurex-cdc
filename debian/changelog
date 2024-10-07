@@ -1,3 +1,9 @@
+zero-lliurex-cdc (2.22.8) noble; urgency=medium
+
+  * Fixed debian control file
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Mon, 07 Oct 2024 11:38:43 +0200
+
 zero-lliurex-cdc (2.22.7) noble; urgency=medium
 
   * Migrated to PySide6
