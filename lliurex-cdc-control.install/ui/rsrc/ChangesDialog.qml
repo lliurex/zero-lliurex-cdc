@@ -19,6 +19,11 @@ Dialog {
     title:dialogTitle
     modal:true
     anchors.centerIn: Overlay.overlay
+    background:Rectangle{
+        color:"#ebeced"
+        border.color:"#b8b9ba"
+        border.width:1
+    }
 
     onVisibleChanged:{
         if (!this.visible && xButton){
