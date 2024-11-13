@@ -1,3 +1,9 @@
+zero-lliurex-cdc (2.22.11) noble; urgency=medium
+
+  * Minor fixes in style
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Wed, 13 Nov 2024 09:11:44 +0100
+
 zero-lliurex-cdc (2.22.10) noble; urgency=medium
 
   * Fixed Dialog style
