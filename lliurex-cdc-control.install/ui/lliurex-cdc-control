@@ -36,6 +36,7 @@ else:
 
 import LliurexCDCControl		
 app = QApplication()
+app.setDesktopFileName("lliurex-cdc-control")
 engine = QQmlApplicationEngine()
 engine.clearComponentCache()
 context=engine.rootContext()
@@ -49,7 +50,6 @@ if not engine.rootObjects():
 	sys.exit(-1)
 
 engine.quit.connect(QApplication.quit)
-app.setWindowIcon(QIcon("/usr/share/icons/hicolor/scalable/apps/lliurex-cdc-control.svg"));
 ret=app.exec()
 del engine
 del app
