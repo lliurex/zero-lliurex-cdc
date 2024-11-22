@@ -1,3 +1,9 @@
+zero-lliurex-cdc (2.22.12) noble; urgency=medium
+
+  * Fixed launcher to show app icon in Wayland
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Fri, 22 Nov 2024 09:35:02 +0100
+
 zero-lliurex-cdc (2.22.11) noble; urgency=medium
 
   * Minor fixes in style
