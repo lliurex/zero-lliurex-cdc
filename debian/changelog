@@ -1,3 +1,9 @@
+zero-lliurex-cdc (2.12.7) jammy; urgency=medium
+
+  * Changed CDC by ID in app file
+  
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Wed, 08 Jan 2025 16:57:43 +0100
+
 zero-lliurex-cdc (2.12.6) jammy; urgency=medium
 
   * Renamed CDC by ID
