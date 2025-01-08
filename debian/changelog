@@ -1,3 +1,9 @@
+zero-lliurex-cdc (2.22.14) noble; urgency=medium
+
+  * Changed CDC by ID in app file
+  
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Wed, 08 Jan 2025 16:53:05 +0100
+
 zero-lliurex-cdc (2.22.13) noble; urgency=medium
 
   * Fixed to display centered on screen
