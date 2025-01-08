@@ -1,3 +1,9 @@
+zero-lliurex-cdc (2.2.7) focal; urgency=medium
+
+  * Changed CDC by ID in app file
+  
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Wed, 08 Jan 2025 16:59:46 +0100
+
 zero-lliurex-cdc (2.2.6) focal; urgency=medium
 
   * Renamed CDC by ID
