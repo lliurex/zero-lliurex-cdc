@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-18 09:18+0200\n"
+"POT-Creation-Date: 2025-11-27 08:58+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,7 +26,6 @@ msgid "You need administration privileges to run this application."
 msgstr ""
 
 #: ../lliurex-cdc-control.install/ui/rsrc/ApplicationOptions.qml:25
-#: ../lliurex-cdc-control.install/ui/rsrc/Settings.qml:105
 msgid "Settings"
 msgstr ""
 
@@ -43,16 +42,16 @@ msgid "Activate ID integration on this computer"
 msgstr ""
 
 #: ../lliurex-cdc-control.install/ui/rsrc/Settings.qml:73
-#: ../lliurex-cdc-control.install/ui/rsrc/ChangesDialog.qml:60
+#: ../lliurex-cdc-control.install/ui/rsrc/ChangesDialog.qml:55
 msgid "Apply"
 msgstr ""
 
 #: ../lliurex-cdc-control.install/ui/rsrc/Settings.qml:90
-#: ../lliurex-cdc-control.install/ui/rsrc/ChangesDialog.qml:104
+#: ../lliurex-cdc-control.install/ui/rsrc/ChangesDialog.qml:95
 msgid "Cancel"
 msgstr ""
 
-#: ../lliurex-cdc-control.install/ui/rsrc/Settings.qml:107
+#: ../lliurex-cdc-control.install/ui/rsrc/Settings.qml:106
 msgid ""
 "The are pending changes to apply.\n"
 "Do you want apply the changes or discard them?"
@@ -82,6 +81,6 @@ msgstr ""
 msgid "Loading. Wait a moment..."
 msgstr ""
 
-#: ../lliurex-cdc-control.install/ui/rsrc/ChangesDialog.qml:82
+#: ../lliurex-cdc-control.install/ui/rsrc/ChangesDialog.qml:75
 msgid "Discard"
 msgstr ""
