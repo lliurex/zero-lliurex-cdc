@@ -101,10 +101,9 @@ Rectangle{
     } 
 
     ChangesDialog{
-        id:cdcChangesDialog
-        dialogTitle:"Lliurex ID Control"+" - "+i18nd("lliurex-cdc-control","Settings")
-        dialogVisible:cdcControlBridge.showChangesDialog
-	dialogMsg:i18nd("lliurex-cdc-control","The are pending changes to apply.\nDo you want apply the changes or discard them?")
+       id:cdcChangesDialog
+       dialogVisible:cdcControlBridge.showChangesDialog
+	   dialogMsg:i18nd("lliurex-cdc-control","The are pending changes to apply.\nDo you want apply the changes or discard them?")
 
         Connections{
             target:cdcChangesDialog
