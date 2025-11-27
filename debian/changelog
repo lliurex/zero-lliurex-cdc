@@ -1,3 +1,9 @@
+zero-lliurex-cdc (2.22.15) noble; urgency=medium
+
+  * Fixed custom dialog template
+  
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Thu, 27 Nov 2025 09:00:16 +0100
+
 zero-lliurex-cdc (2.22.14) noble; urgency=medium
 
   * Changed CDC by ID in app file
